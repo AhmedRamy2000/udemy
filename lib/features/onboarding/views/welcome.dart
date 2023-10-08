@@ -2,8 +2,8 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:udemy/views/home.dart';
-import 'package:udemy/views/welcome/bloc/bloc/welcome_bloc.dart';
+import 'package:udemy/features/onboarding/manager/bloc/welcome_bloc.dart';
+
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
@@ -62,7 +62,7 @@ class _WelcomeState extends State<Welcome> {
                             ),
                           ]),
                       Positioned(
-                          bottom: 50.h,
+                          bottom: 40.h,
                           child: DotsIndicator(
                             position: state.page,
                             dotsCount: 3,
@@ -120,12 +120,13 @@ class _WelcomeState extends State<Welcome> {
                   duration: const Duration(microseconds: 500),
                   curve: Curves.ease);
             } else {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const MyHome()));
+              // Navigator.of(context).push(
+              //     MaterialPageRoute(builder: (context) => const MyHome()));
+              Navigator.of(context).pushNamedAndRemoveUntil("signIn", (route) => false);
             }
           },
           child: Container(
-              margin: EdgeInsets.only(top: 100.h, left: 25.w, right: 25.w),
+              margin: EdgeInsets.only(top: 80.h, left: 25.w, right: 25.w),
               width: 325.w,
               height: 50.w,
               decoration: BoxDecoration(
