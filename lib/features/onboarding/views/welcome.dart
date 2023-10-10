@@ -2,8 +2,8 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:udemy/common/values/colors.dart';
 import 'package:udemy/features/onboarding/manager/bloc/welcome_bloc.dart';
-
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
@@ -68,8 +68,8 @@ class _WelcomeState extends State<Welcome> {
                             dotsCount: 3,
                             mainAxisAlignment: MainAxisAlignment.center,
                             decorator: DotsDecorator(
-                              color: Colors.grey,
-                              activeColor: Colors.blue,
+                              color: AppColors.primaryFourElementText,
+                              activeColor: AppColors.primaryElement,
                               size: const Size.square(8.0),
                               activeSize: const Size(20, 8),
                               activeShape: RoundedRectangleBorder(
@@ -100,7 +100,7 @@ class _WelcomeState extends State<Welcome> {
         ),
         Text(title,
             style: TextStyle(
-                color: Colors.black,
+                color: AppColors.primaryText,
                 fontSize: 24.sp,
                 fontWeight: FontWeight.normal)),
         Container(
@@ -108,8 +108,8 @@ class _WelcomeState extends State<Welcome> {
           padding: EdgeInsets.only(left: 30.w, right: 30.w),
           child: Text(subTitle,
               style: TextStyle(
-                  color: Colors.black.withOpacity(0.5),
-                  fontSize: 14.sp,
+                  color: AppColors.primarySecondaryElementText,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.normal)),
         ),
         GestureDetector(
@@ -122,7 +122,8 @@ class _WelcomeState extends State<Welcome> {
             } else {
               // Navigator.of(context).push(
               //     MaterialPageRoute(builder: (context) => const MyHome()));
-              Navigator.of(context).pushNamedAndRemoveUntil("signIn", (route) => false);
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil("signIn", (route) => false);
             }
           },
           child: Container(
@@ -130,20 +131,20 @@ class _WelcomeState extends State<Welcome> {
               width: 325.w,
               height: 50.w,
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 88, 174, 245),
+                  color: AppColors.primaryElement,
                   borderRadius: BorderRadius.all(Radius.circular(15.w)),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
-                        color: Colors.grey.withOpacity(0.1),
                         spreadRadius: 1,
                         blurRadius: 2,
-                        offset: const Offset(5, 10))
+                        offset: Offset(0, 1),
+                        color: AppColors.primaryElementText)
                   ]),
               child: Center(
                   child: Text(
                 buttonName,
                 style: TextStyle(
-                    color: Colors.white,
+                    color: AppColors.primaryBackground,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.normal),
               ))),

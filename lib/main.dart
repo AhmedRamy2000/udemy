@@ -19,25 +19,24 @@ class UdemyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [
           BlocProvider(
+            lazy: false,
             create: (context) => WelcomeBloc(),
           ),
           BlocProvider(
+            lazy: false,
             create: (context) => AppBloc(),
           ),
         ],
         child: ScreenUtilInit(
             builder: (context, child) => MaterialApp(
-                debugShowCheckedModeBanner: false,
-                theme: ThemeData(
-                  appBarTheme: const AppBarTheme(
-                    elevation: 0,
-                    backgroundColor: Colors.white
-                  )
-                ),
-                home: const Welcome(),
-                routes: {
-                  "myHome": (constext) => const MyHome(),
-                  "signIn":(context) => const SignIn()
-                  })));
+                    debugShowCheckedModeBanner: false,
+                    theme: ThemeData(
+                        appBarTheme: const AppBarTheme(
+                            elevation: 0, backgroundColor: Colors.white)),
+                    home: const Welcome(),
+                    routes: {
+                      "myHome": (constext) => const MyHome(),
+                      "signIn": (context) => const SignIn()
+                    })));
   }
 }
