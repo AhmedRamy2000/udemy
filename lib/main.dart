@@ -1,13 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:udemy/bloc/app_bloc.dart';
 import 'package:udemy/features/onboarding/manager/bloc/welcome_bloc.dart';
 import 'package:udemy/features/onboarding/views/welcome.dart';
+import 'package:udemy/features/sign_in/manager/bloc/sign_in_bloc.dart';
 import 'package:udemy/features/sign_in/views/sign_in.dart';
 import 'package:udemy/home.dart';
-
-void main() {
+import 'firebase_options.dart';
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   runApp(const UdemyApp());
 }
 
@@ -25,6 +29,9 @@ class UdemyApp extends StatelessWidget {
           BlocProvider(
             lazy: false,
             create: (context) => AppBloc(),
+          ),
+          BlocProvider(
+            create: (context) => SignInBloc(),
           ),
         ],
         child: ScreenUtilInit(

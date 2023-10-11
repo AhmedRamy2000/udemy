@@ -6,12 +6,14 @@ import 'package:udemy/features/sign_in/views/widgets/custom_text.dart';
 class CustomTextField extends StatelessWidget {
   final double topMargin;
   final String text, hint, icon;
+  final void Function(String)? onChanged;
   const CustomTextField(
       {super.key,
       required this.topMargin,
       required this.text,
       required this.hint,
-      required this.icon});
+      required this.icon,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +38,7 @@ class CustomTextField extends StatelessWidget {
               width: 250.w,
               height: 50.h,
               child: TextField(
+                onChanged: (value)=>onChanged!(value),
                   keyboardType: TextInputType.multiline,
                   autocorrect: false,
                   obscureText: text =="Password" ? true:false,
