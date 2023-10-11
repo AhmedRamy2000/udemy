@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:udemy/bloc/app_bloc.dart';
 import 'package:udemy/features/onboarding/manager/bloc/welcome_bloc.dart';
 import 'package:udemy/features/onboarding/views/welcome.dart';
@@ -37,6 +38,7 @@ class UdemyApp extends StatelessWidget {
         child: ScreenUtilInit(
             builder: (context, child) => MaterialApp(
                     debugShowCheckedModeBanner: false,
+                    builder: FToastBuilder(),
                     theme: ThemeData(
                         appBarTheme: const AppBarTheme(
                             elevation: 0, backgroundColor: Colors.white)),
