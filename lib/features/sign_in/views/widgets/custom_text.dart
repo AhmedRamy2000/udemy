@@ -7,14 +7,15 @@ class CustomText extends StatelessWidget {
   const CustomText({
     super.key,
     required this.text,
+    this.topMargin=1
   });
-
+  final double topMargin;
   final String text;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(bottom: 5.h),
+        margin: EdgeInsets.only(bottom: 5.h,top:topMargin.h),
         child: Text(
           text,
           style: TextStyle(

@@ -28,7 +28,7 @@ class _SignInState extends State<SignIn> {
           child: SafeArea(
               child: Scaffold(
             backgroundColor: AppColors.primaryBackground,
-            appBar: customAppBar(),
+            appBar: customAppBar('LogIn'),
             body: SingleChildScrollView(
               child: Column(
                 children: [
@@ -78,7 +78,9 @@ class _SignInState extends State<SignIn> {
                     bottonName: 'Log In',
                   ),
                   CustomBotton(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).pushNamed("register");
+                    },
                     bottonName: 'Register',
                     color: AppColors.primaryBackground,
                     textColor: AppColors.primaryText,

@@ -9,7 +9,7 @@ class SignInController {
   const SignInController({required this.context});
   void handleSignIn(String type) async {
     try {
-      if (type == 'Email') {
+      if (type == 'Email'||type == 'Password') {
         //BlocProvider.of<SignInBloc>(context).state;
         final state = context.read<SignInBloc>().state;
         String emailAddress = state.email;
