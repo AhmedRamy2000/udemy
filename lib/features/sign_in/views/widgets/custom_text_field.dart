@@ -41,7 +41,7 @@ class CustomTextField extends StatelessWidget {
                 onChanged: (value)=>onChanged!(value),
                   keyboardType: TextInputType.multiline,
                   autocorrect: false,
-                  obscureText: text =="Password" ? true:false,
+                  obscureText: text =="Password"||text == "Confirm Password" ? true:false,
                   decoration: InputDecoration(
                       hintText: hint,
                       hintStyle: TextStyle(color: AppColors.primaryThreeElementText),

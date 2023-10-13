@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:udemy/bloc_providers.dart';
+import 'package:udemy/common/values/colors.dart';
 import 'package:udemy/features/onboarding/views/welcome.dart';
 import 'package:udemy/features/registration/views/register.dart';
 import 'package:udemy/features/sign_in/views/sign_in.dart';
@@ -29,7 +30,10 @@ class UdemyApp extends StatelessWidget {
                     debugShowCheckedModeBanner: false,
                     theme: ThemeData(
                         appBarTheme: const AppBarTheme(
-                            elevation: 0, backgroundColor: Colors.white)),
+                            iconTheme:
+                                IconThemeData(color: AppColors.primaryText),
+                            elevation: 0,
+                            backgroundColor: Colors.white)),
                     home: const Welcome(),
                     routes: {
                       "myHome": (constext) => const MyHome(),
@@ -38,6 +42,3 @@ class UdemyApp extends StatelessWidget {
                     })));
   }
 }
-
-
-
